@@ -15,7 +15,10 @@ Source0:	http://tts.polip.com/files/%{name}-%{ver}-%{rel}.tar.gz
 # Source0-md5:	e26f8d73f49bda7c077273ad8d381664
 URL:		http://milena.polip.com/
 BuildRequires:	libao-devel
-BuildRequires:	mbrola-voice-pl
+BuildRequires:	enca-devel
+Requires:	sox
+Requires:	mbrola
+Requires:	mbrola-voice-pl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,14 +30,16 @@ Polski syntezator mowy.
 %prep
 %setup -q -n %{name}-%{ver}
 
-%{__sed} -i 's/export prefix=\/usr\/local/export prefix=$(DESTDIR)\/usr/' Makefile
-%{__sed} -i 's/export speechd_dir=$(shell .\/find_speechd)/export speechd_dir=$(DESTDIR)$(shell .\/find_speechd)/' Makefile
-%{__sed} -i 's/ldconfig//' Makefile
-
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags}"
+	CFLAGS="%{rpmcflags}" \
+	prefix=/usr \
+	mbrola=/usr/bin/mbrola \
+	mbrola_voice=/usr/share/festival/lib/voices/polish/pl1_mbrola/pl1/pl1 \
+	speechd=/etc/speech-dispatcher/modules
+	distro="PLD Linux" \
+	contrast=contrast
 
 %install
 rm -rf $RPM_BUILD_ROOT
