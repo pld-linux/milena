@@ -14,11 +14,11 @@ Group:		Applications/Sound
 Source0:	http://tts.polip.com/files/%{name}-%{ver}-%{rel}.tar.gz
 # Source0-md5:	e26f8d73f49bda7c077273ad8d381664
 URL:		http://milena.polip.com/
-BuildRequires:	libao-devel
 BuildRequires:	enca-devel
-Requires:	sox
+BuildRequires:	libao-devel
 Requires:	mbrola
 Requires:	mbrola-voice-pl
+Requires:	sox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,10 +34,10 @@ Polski syntezator mowy.
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
-	prefix=/usr \
-	mbrola=/usr/bin/mbrola \
-	mbrola_voice=/usr/share/festival/lib/voices/polish/pl1_mbrola/pl1/pl1 \
-	speechd=/etc/speech-dispatcher/modules
+	prefix=%{_prefix} \
+	mbrola=%{_bindir}/mbrola \
+	mbrola_voice=%{_datadir}/festival/lib/voices/polish/pl1_mbrola/pl1/pl1 \
+	speechd=%{_sysconfdir}/speech-dispatcher/modules \
 	distro="PLD Linux" \
 	contrast=contrast
 
