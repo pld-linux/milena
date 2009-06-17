@@ -2,7 +2,7 @@
 # TODO: do something with *.so and *.h files
 
 %define ver	0.1.9
-%define rel	4
+%define rel	5
 
 Summary:	Text to speech system
 Summary(pl.UTF-8):	Syntezator mowy
@@ -12,11 +12,10 @@ Release:	0.1
 License:	GPL v3, LGPL v2
 Group:		Applications/Sound
 Source0:	http://tts.polip.com/files/%{name}-%{ver}-%{rel}.tar.gz
-# Source0-md5:	63f52242b58c4fa3e4eabbaafaaa512e
+# Source0-md5:	e26f8d73f49bda7c077273ad8d381664
 URL:		http://milena.polip.com/
 BuildRequires:	libao-devel
 BuildRequires:	mbrola-voice-pl
-BuildRequires:	speech-dispatcher
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
