@@ -2,17 +2,17 @@
 # TODO: do something with *.so and *.h files
 
 %define ver	0.1.9
-%define rel	5
+%define rel	6
 
 Summary:	Text to speech system
 Summary(pl.UTF-8):	Syntezator mowy
 Name:		milena
 Version:	%{ver}.%{rel}
-Release:	0.1
+Release:	0.5
 License:	GPL v3, LGPL v2
 Group:		Applications/Sound
 Source0:	http://tts.polip.com/files/%{name}-%{ver}-%{rel}.tar.gz
-# Source0-md5:	e26f8d73f49bda7c077273ad8d381664
+# Source0-md5:	8a4ee898f225842988c41bd805ce556d
 URL:		http://milena.polip.com/
 BuildRequires:	enca-devel
 BuildRequires:	libao-devel
