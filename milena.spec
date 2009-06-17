@@ -30,6 +30,10 @@ Polski syntezator mowy.
 %prep
 %setup -q -n %{name}-%{ver}
 
+%{__sed} -i 's/export prefix=\/usr\/local/export prefix=$(DESTDIR)\/usr/' Makefile
+%{__sed} -i 's/export speechd_dir=$(shell .\/find_speechd)/export speechd_dir=$(DESTDIR)$(shell .\/find_speechd)/' Makefile
+%{__sed} -i 's/ldconfig//' Makefile
+
 %build
 %{__make} \
 	CC="%{__cc}" \
