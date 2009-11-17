@@ -1,18 +1,15 @@
 #
 # TODO: do something with *.so and *.h files
 
-%define ver	0.1.9
-%define rel	6
-
 Summary:	Text to speech system
 Summary(pl.UTF-8):	Syntezator mowy
 Name:		milena
-Version:	%{ver}.%{rel}
+Version:	0.2.2.1
 Release:	0.5
 License:	GPL v3, LGPL v2
 Group:		Applications/Sound
-Source0:	http://tts.polip.com/files/%{name}-%{ver}-%{rel}.tar.gz
-# Source0-md5:	8a4ee898f225842988c41bd805ce556d
+Source0:	http://tts.polip.com/files/%{name}-%{version}.tar.gz
+# Source0-md5:	0068b31238ef791b7eac8416a18c89ff
 URL:		http://milena.polip.com/
 BuildRequires:	enca-devel
 BuildRequires:	libao-devel
@@ -28,7 +25,7 @@ Polish text to speech system.
 Polski syntezator mowy.
 
 %prep
-%setup -q -n %{name}-%{ver}
+%setup -q
 
 %{__sed} -i 's/export prefix=\/usr\/local/export prefix=$(DESTDIR)\/usr/' Makefile
 %{__sed} -i 's/export speechd_dir=$(shell .\/find_speechd)/export speechd_dir=$(DESTDIR)$(shell .\/find_speechd)/' Makefile
@@ -63,5 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/libmilena*.so
 %{_datadir}/milena
+%{_datadir}/milena-words
 %{_sysconfdir}/speech-dispatcher/modules/milena*.conf
 #%{_includedir}/milena*.h
