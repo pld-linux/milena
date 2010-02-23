@@ -4,15 +4,16 @@
 Summary:	Text to speech system
 Summary(pl.UTF-8):	Syntezator mowy
 Name:		milena
-Version:	0.2.2.1
-Release:	0.5
+Version:	0.2.6.0
+Release:	0.1
 License:	GPL v3, LGPL v2
 Group:		Applications/Sound
 Source0:	http://tts.polip.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	0068b31238ef791b7eac8416a18c89ff
+# Source0-md5:	298809a7812d6f9c0b0eaf4952958326
 URL:		http://milena.polip.com/
 BuildRequires:	enca-devel
 BuildRequires:	libao-devel
+BuildRequires:	mbrola-voice-pl
 Requires:	mbrola
 Requires:	mbrola-voice-pl
 Requires:	sox
@@ -23,6 +24,14 @@ Polish text to speech system.
 
 %description -l pl.UTF-8
 Polski syntezator mowy.
+
+%package devel
+Summary:	Libraries and header files for milena development
+Summary(pl.UTF-8):	Biblioteki i pliki nagłówkowe dla milena
+Group:		Development/Libraries
+
+%description devel
+This is the milena development package.
 
 %prep
 %setup -q
@@ -61,5 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libmilena*.so
 %{_datadir}/milena
 %{_datadir}/milena-words
-%{_sysconfdir}/speech-dispatcher/modules/milena*.conf
-#%{_includedir}/milena*.h
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/milena*.h
