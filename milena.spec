@@ -4,12 +4,12 @@
 Summary:	Text to speech system
 Summary(pl.UTF-8):	Syntezator mowy
 Name:		milena
-Version:	0.2.6.0
+Version:	0.2.7.0
 Release:	0.1
 License:	GPL v3, LGPL v2
 Group:		Applications/Sound
 Source0:	http://tts.polip.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	298809a7812d6f9c0b0eaf4952958326
+# Source0-md5:	e716c475257227d116255016f1e52565
 URL:		http://milena.polip.com/
 BuildRequires:	enca-devel
 BuildRequires:	libao-devel
@@ -53,7 +53,7 @@ This is the milena development package.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir},%{_sysconfdir}/speech-dispatcher/modules}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/milena,%{_libdir},%{_includedir},%{_sysconfdir}/speech-dispatcher/modules}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
