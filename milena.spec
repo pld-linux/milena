@@ -4,12 +4,12 @@
 Summary:	Text to speech system
 Summary(pl.UTF-8):	Syntezator mowy
 Name:		milena
-Version:	0.2.8.0
+Version:	0.2.8.1
 Release:	0.1
 License:	GPL v3, LGPL v2
 Group:		Applications/Sound
 Source0:	http://tts.polip.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	659afecc786cfa6a44ff61e2677be5c7
+# Source0-md5:	1861f6abcef4ed8be3c0d25190bc54d1
 URL:		http://milena.polip.com/
 BuildRequires:	enca-devel
 BuildRequires:	libao-devel
